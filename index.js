@@ -49,6 +49,38 @@ app.patch('/products', (req, res) => {
     res.send('actualizando una parte del producto')
 })
 
+app.get('/', (req, res) => {
+    res.send('Hello world')
+})
+
+app.get('/', (req, res) => {
+    res.send('Hello world')
+})
+
+app.get('/miarchivo', (req, res) => {
+    res.sendFile('./javascript.png', {
+        root: __dirname
+    })
+})
+
+app.get('/user', (req, res) => {
+    res.json({
+        "name": "mike",
+        "lastname": "ray",
+        "age": 40,
+        "points": [1, 2, 3],
+        "address": {
+            "city": "new york",
+            "street": "some street 123"
+        }
+    })
+})
+
+
+app.get('/isAlive', (req, res) => {
+    res.sendStatus(204)
+})
+
 
 
 app.listen(3000)
