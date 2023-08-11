@@ -136,7 +136,14 @@ app.get('/nombre/:nombre/age/:age', (req, res) => {
     res.send(`El usuario ${req.params.nombre} tiene ${req.params.age} años`)
 })
 
-
+app.get('/search', (req, res) => {
+    console.log(req.query)
+    if (req.query.q === 'javascript books') {
+        res.send('lista de libros de javascript')
+    } else {
+        res.send('Pagina normal')
+    }
+})
 
 app.listen(3000);
 console.log(`Server on port ${3000}`)
